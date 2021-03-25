@@ -19,7 +19,7 @@ import com.zupchallenge.zup.domain.model.User;
 import com.zupchallenge.zup.domain.repository.UserRepository;
 
 
-@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
+@CrossOrigin(origins = "https://vaccinationcontrol.netlify.app", maxAge = 3600)
 @RestController
 @RequestMapping("/users")
 public class UserController {
