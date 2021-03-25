@@ -19,7 +19,7 @@ import com.zupchallenge.zup.domain.model.User;
 import com.zupchallenge.zup.domain.repository.UserRepository;
 
 
-@CrossOrigin(origins = "https://vaccinationcontrol.netlify.app", maxAge = 3600)
+@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -53,7 +53,7 @@ public class UserController {
 		
 		// Procura se ja existe o usuário no banco de dados
 		Optional<User> userCpf = userRepository.findByCpf(cpf);
-		Optional<User> userEmail = userRepository.findByCpf(email);
+		Optional<User> userEmail = userRepository.findByEmail(email);
 		
 		// Verifica se ja há cadastro com email ou cpf no banco de dados
 		if(userCpf.isPresent() || userEmail.isPresent()) {

@@ -19,7 +19,7 @@ import com.zupchallenge.zup.domain.model.Vaccination;
 import com.zupchallenge.zup.domain.repository.UserRepository;
 import com.zupchallenge.zup.domain.repository.VaccinationRepository;
 
-@CrossOrigin(origins = "https://vaccinationcontrol.netlify.app", maxAge = 3600)
+@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/vaccinations")
 public class VaccinationController {
