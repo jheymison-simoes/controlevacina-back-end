@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -59,7 +60,9 @@ public class UserController {
 		if(userCpf.isPresent() || userEmail.isPresent()) {
 			return ResponseEntity.badRequest().build();
 		} else {
-			return ResponseEntity.ok(userRepository.save(user));
+			//return ResponseEntity.ok(userRepository.save(user));
+			
+			return ResponseEntity.status(HttpStatus.CREATED).body(userRepository.save(user));
 		}
 		
 	}

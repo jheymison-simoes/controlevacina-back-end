@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,7 +52,8 @@ public class VaccinationController {
 			if(userEmailVaccination.isPresent()) {
 				return ResponseEntity.badRequest().build();
 			} else {
-				return ResponseEntity.ok(vaccinationRepository.save(vaccination));
+				//return ResponseEntity.ok(vaccinationRepository.save(vaccination));
+				return ResponseEntity.status(HttpStatus.CREATED).body(vaccinationRepository.save(vaccination));
 			}	
 		} else {
 			return ResponseEntity.badRequest().build();
